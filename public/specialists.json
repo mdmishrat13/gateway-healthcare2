@@ -1,0 +1,50 @@
+[
+    {
+        "id": 1,
+        "name": "Abdul Mazid",
+        "degree": "Surgery",
+        "img": "https://i.ibb.co/bz9TJxN/images-8.jpg "
+    },
+    {
+        "id": 2,
+        "name": "Abdul Hamid",
+        "degree": "Neuro Surgery",
+        "img": "https://i.ibb.co/J5gz3Hf/images-10.jpg "
+    },
+    {
+        "id": 3,
+        "name": "Rokon Uddin",
+        "degree": "Urology",
+        "img": "https://i.ibb.co/BVyXB25/images-11.jpg "
+    },
+    {
+        "id": 4,
+        "name": "Sabiha Khanom",
+        "degree": "Neurology",
+        "img": "https://i.ibb.co/7YsZdy9/images-9.jpg"
+    },
+    {
+        "id": 5,
+        "name": "Sultana Shila",
+        "degree": "Radiology",
+        "img": " https://i.ibb.co/H2wXSTh/images-13.jpg"
+    },
+    {
+        "id": 6,
+        "name": "Barkat Ullah",
+        "degree": "Paediatrics",
+        "img": "https://i.ibb.co/8XWtQ93/images-12.jpg "
+    },
+    {
+        "id": 7,
+        "name": "Umme Kulsum",
+        "degree": "Psysiology",
+        "img": " https://i.ibb.co/kKLB6TN/images-15.jpg"
+    },
+    {
+        "id": 8,
+        "name": "kawsar mahmud",
+        "degree": "Pharmacology",
+        "img": "https://i.ibb.co/BVyXB25/images-11.jpg "
+    }
+]

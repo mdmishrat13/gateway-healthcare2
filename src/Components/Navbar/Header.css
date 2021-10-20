@@ -1,0 +1,22 @@
+.nav-items-style a{
+    display: block;
+    text-decoration: none;
+    margin-right: 10px;
+    font-size: 20px;
+    font-weight: 500;
+}
+.nav-logo-style a{
+    display: block;
+    text-decoration: none;
+    margin-right: 10px;
+    font-size: 20px;
+    font-weight: bold;
+}
+.login-register-btn{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.login-register-btn a{
+    color: black;
+}
