@@ -3,3 +3,7 @@
     margin:auto;
     border: 1px solid lightgray;
 }
+.image-cover{
+    border: 1px solid gray;
+    height: 500px;
+}

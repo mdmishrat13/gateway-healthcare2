@@ -1,5 +1,5 @@
 import initializeFirebaseAuthentication from "../firebase/firebase.init";
-import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged, signOut, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { updateProfile, getAuth, createUserWithEmailAndPassword, onAuthStateChanged, signOut, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { useEffect, useState } from "react";
 
 
@@ -12,9 +12,11 @@ const auth = getAuth();
 const useFirebase = () => {
     const [user, setUser] = useState({});
     const [error, setError] = useState("");
+    const [name, setName] = useState('');
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [isLoading, setIsLoading] = useState(true)
+    const [isLoading, setIsLoading] = useState(true);
+    const [specialist, setSpecialist] = useState([]);
 
     const getUserPassword = e => {
         setPassword(e.target.value);
@@ -23,17 +25,27 @@ const useFirebase = () => {
     const getUserEmail = e => {
         setEmail(e.target.value);
     }
+    const getUserName = e => {
+        setName(e.target.value);
+    }
+    const updateUserProfile = () => {
+        updateProfile(auth.currentUser, { displayName: name })
+            .then((result) => { });
+    }
 
-    const sigiupWithEmailAndPassword = () => {
+    const sigiupWithEmailAndPassword = (e) => {
+        e.preventDefault();
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCreate) => {
                 setUser(userCreate.user)
+                updateUserProfile()
             })
             .catch((error) => {
                 setError(error.message)
-            })
+            });
     }
-    const emailAndPasswordSignIn = () => {
+    const emailAndPasswordSignIn = (e) => {
+        e.preventDefault();
         setIsLoading(true);
         signInWithEmailAndPassword(auth, email, password)
             .then((result) => {
@@ -72,7 +84,7 @@ const useFirebase = () => {
             }
             setIsLoading(false);
         })
-    })
+    }, [])
     const logOut = () => {
         signOut(auth)
             .then(() => {
@@ -83,11 +95,20 @@ const useFirebase = () => {
             });
     }
 
+    useEffect(() => {
+        fetch("/specialists.json")
+            .then(res => res.json())
+            .then(data => setSpecialist(data))
+    }, []);
+
+
 
     return {
+        specialist,
         user,
         error,
         isLoading,
+        getUserName,
         getUserEmail,
         getUserPassword,
         sigiupWithEmailAndPassword,

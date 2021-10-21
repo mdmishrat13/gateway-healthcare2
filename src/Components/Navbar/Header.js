@@ -3,10 +3,10 @@ import { Container, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import "./Header.css";
 import Button from 'react-bootstrap/Button';
-import useAuth from './../../hooks/useAuth'
+import useAuth from './../../hooks/useAuth';
 
 const Header = () => {
-    const { user } = useAuth();
+    const { user, logOut } = useAuth();
     return (
         <div>
             <Navbar collapseOnSelect expand="lg" bg="light" variant="light" fixed="top">
@@ -18,8 +18,10 @@ const Header = () => {
                             <Nav.Link> <Link to="/home">Home</Link></Nav.Link>
                             <Nav.Link><Link to="/specialists">Specialists</Link></Nav.Link>
                             <Nav.Link><Link to="/about">About</Link></Nav.Link>
-                            {user.displayName ? <div> <span>{user.displayName}</span>
-                                <Button variant="primary" size="sm"> Logout </Button> </div>
+                            {user.email ? <div className="d-flex">
+                                <Nav.Link><Link to="/support">Support</Link></Nav.Link>
+                                <Nav.Link><Link to="/pro">Pro</Link></Nav.Link><span>{user.displayName}</span>
+                                <Button onClick={logOut} variant="primary" size="sm"> Logout </Button> </div>
                                 : <div className="login-register-btn" >
                                     <Link to="/login"> Login</Link>
                                     <Link to="/register"> Register </Link></div>}

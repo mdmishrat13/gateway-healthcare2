@@ -11,6 +11,9 @@ import About from './Components/About/About';
 import NotFound from './Components/NotFound/NotFound';
 import Footer from './Components/Footer/Footer';
 import PrivetRoute from "./PrivetRoute/PrivetRoute";
+import Details from './Components/Details/Details';
+import Support from './Components/Support/Support';
+import Pro from './Components/Pro/Pro';
 
 
 function App() {
@@ -29,15 +32,24 @@ function App() {
             <Route path="/register">
               <Register></Register>
             </Route>
-            <PrivetRoute path="/specialists">
+            <Route path="/specialists">
               <Specialists></Specialists>
-            </PrivetRoute>
+            </Route>
             <Route path="/about">
               <About></About>
             </Route>
             <Route exact path="/">
               <Home></Home>
             </Route>
+            <PrivetRoute path="/details/:specialistId">
+              <Details></Details>
+            </PrivetRoute>
+            <PrivetRoute path="/support">
+              <Support></Support>
+            </PrivetRoute>
+            <PrivetRoute path="/pro">
+              <Pro></Pro>
+            </PrivetRoute>
             <Route path="*">
               <NotFound></NotFound>
             </Route>

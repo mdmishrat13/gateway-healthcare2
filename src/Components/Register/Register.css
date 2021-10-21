@@ -25,7 +25,7 @@ body{
   margin: auto;
   padding-top: 100px;
 }
-input[type=email], input[type=password] {
+input[type=email], input[type=password],input[type=text] {
     width: 100%;
     padding: 15px;
     margin: 5px 0 22px 0;
@@ -34,7 +34,7 @@ input[type=email], input[type=password] {
     background: rgb(250, 244, 244);
   }
   
-  input[type=email]:focus, input[type=password]:focus {
+  input[type=email]:focus, input[type=password]:focus,input[type=text]:focus {
     background-color: rgb(207, 204, 204);
     outline: none;
   }
